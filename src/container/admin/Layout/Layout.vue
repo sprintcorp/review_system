@@ -11,7 +11,10 @@
         <v-container
         >
           <div class="main_card">
-            <transition name="fade" mode="out-in">
+            <div class="sidebar">
+                <TheSideBar />
+            </div>
+            <transition class="main" name="fade" mode="out-in">
               <router-view></router-view>
             </transition>
           </div>

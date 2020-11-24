@@ -39,7 +39,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @import "Header";
+  @import "header";
 </style>
 
-<script src="./Header.js"></script>
+<script src="./header.js"></script>

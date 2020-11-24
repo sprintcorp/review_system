@@ -21,17 +21,32 @@ const router = new VueRouter({
             },
             children: [
                 {
-                    path: 'auth/login',
+                    path: '/auth/login',
                     name: 'auth-login',
                     component: () => import('../container/auth/Login/Login.vue'),
                 },
                 {
-                    path: 'auth/register',
+                    path: '/auth/register',
                     name: 'auth-register',
                     component: () => import('../container/auth/Register/Register.vue'),
                 }
             ]
         },
+
+        {
+            path: '/admin',
+            component: () => import('../container/admin/Layout/Layout.vue'),
+            redirect: {
+                name: 'admin-dashboard'
+            },
+            children: [
+                {
+                    path: '/admin/dashboard',
+                    name: 'admin-dashboard',
+                    component: () => import('../container/admin/Dashboard/Dashboard.vue'),
+                }
+            ]
+        }
         
 
 
