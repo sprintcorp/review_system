@@ -14,11 +14,24 @@
         ></v-avatar>
 
         <v-btn
-          v-for="link in links"
-          :key="link"
           text
+          @click="goToDashboard()"
         >
-          {{ link }}
+         Dashboard
+        </v-btn>
+
+        <v-btn
+          text
+          :to="{name:'auth-login'}"
+        >
+         Login
+        </v-btn>
+
+        <v-btn
+          text
+          :to="{name:'auth-register'}"
+        >
+         Register
         </v-btn>
 
         <v-spacer></v-spacer>
@@ -39,7 +52,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @import "header";
+  @import "Header.scss";
 </style>
 
-<script src="./header.js"></script>
+<script src="./Header.js"></script>
