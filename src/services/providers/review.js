@@ -9,8 +9,12 @@ class ReviewProvider extends BaseHandler {
         return this.query('api/v1/reviews');
     }
 
-    getReviewById(payload) {
-        return this.get('api/v1/reviews/' + payload);
+    getValidatedReview() {
+        return this.get('api/v1/reviews/validate');
+    }
+
+    getUserReview() {
+        return this.get('api/v1/reviews/user');
     }
 
     updateReview(payload) {

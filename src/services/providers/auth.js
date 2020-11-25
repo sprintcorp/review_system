@@ -13,6 +13,10 @@ class AuthProvider extends BaseHandler {
         return this.query("api/v1/auth/me");
     }
 
+    getOrganisation() {
+        return this.query("api/v1/auth/organisation");
+    }
+
     forgotPassword(payload) {
         return this.post("api/v1/auth/forgotPassword", payload);
     }

@@ -1,0 +1,31 @@
+.main_card{
+    background: #FFFFFF;
+    margin:70px auto 20px;
+    min-height: 100vh;
+    max-width: calc(100%);
+    min-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -65%;
+  
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.5s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+  }
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
+  
+  .sidebar{
+      width: 20%;
+  }
+
+  .main{
+     width: 70%;
+     margin-left: 10%;
+  }

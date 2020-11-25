@@ -6,22 +6,24 @@
       color="white"
       flat
     >
-      <v-container class="py-0 fill-height">
-        <v-avatar
+      <v-container class="py-0 fill-height mt-5">
+        <!-- <v-avatar
           class="mr-10"
           color="grey darken-1"
           size="32"
-        ></v-avatar>
+        ></v-avatar> -->
 
         <v-btn
           text
           @click="goToDashboard()"
+          v-if="auth"
         >
          Dashboard
         </v-btn>
 
         <v-btn
           text
+          v-if="!auth"
           :to="{name:'auth-login'}"
         >
          Login
@@ -29,9 +31,17 @@
 
         <v-btn
           text
+          v-if="!auth"
           :to="{name:'auth-register'}"
         >
          Register
+        </v-btn>
+        <v-btn
+          text
+          @click="logout"
+          v-if="auth"
+        >
+         Logout
         </v-btn>
 
         <v-spacer></v-spacer>

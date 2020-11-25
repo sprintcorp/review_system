@@ -52,12 +52,7 @@
           Register
         </v-btn>
 
-        <v-snackbar v-model="snackbar">
-          {{ text }}
-          <template v-slot:action="{ attrs }">
-            <v-btn color="pink" text v-bind="attrs"> Close </v-btn>
-          </template>
-        </v-snackbar>
+        <notification :status="show" :noty_color="color">{{message}}</notification>
       </v-form>
     </div>
   </div>

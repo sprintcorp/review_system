@@ -1,5 +1,7 @@
 import {
-    getRole
+    getRole,
+    logout,
+    getToken
 }
 from '../../config'
 
@@ -12,6 +14,7 @@ export default {
             'Profile',
             'Updates',
         ],
+        auth: false
     }),
     methods: {
         goToDashboard() {
@@ -24,6 +27,21 @@ export default {
             if (getRole() === 'delta') {
                 this.$router.push({ name: 'user-dashboard' });
             }
+        },
+        logout() {
+            logout();
+            this.auth = false;
+            // this.account_info = 'Account';
+            this.$router.push({ name: 'auth-login' });
+        },
+        getToken() {
+            if (getToken()) {
+                this.auth = true
+            }
         }
+
+    },
+    mounted() {
+        this.getToken();
     }
 }

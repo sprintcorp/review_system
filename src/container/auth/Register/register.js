@@ -18,8 +18,9 @@ export default {
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
         role: ['user', 'organisation'],
-        snackbar: false,
-        text: ''
+        message: '',
+        show: false,
+        color: '',
     }),
 
     methods: {
@@ -32,15 +33,16 @@ export default {
             };
             this.$store.dispatch(REGISTER_USER, payload).then(
                 () => {
-                    this.snackbar = true;
-                    this.text = 'Registration Successful';
+                    this.show = true;
+                    this.color = 'success';
+                    this.message = 'Registration successful';
                 }).catch(
                 () => {
-                    this.snackbar = true;
-                    this.text = 'Registration not Successful';
+                    this.show = true;
+                    this.color = 'error';
+                    this.message = "Registration not successful";
                 });
-            this.snackbar = false
-                // setTimeout(this.snackbar = false, 5000);
+
         },
         reset() {
             this.$refs.form.reset()

@@ -4,7 +4,9 @@ import '@mdi/font/css/materialdesignicons.css';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store';
+import { componentRegistry } from "./registry";
 
+componentRegistry(Vue);
 // @import './sass/custom.scss';
 
 

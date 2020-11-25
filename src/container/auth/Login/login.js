@@ -16,6 +16,9 @@ export default {
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
         checkbox: false,
+        message: '',
+        show: false,
+        color: '',
     }),
 
     methods: {
@@ -33,11 +36,13 @@ export default {
                     } else if (role == 'admin') {
                         this.$router.push({ name: 'admin-dashboard' });
                     } else {
-                        // this.$router.push({ name: 'user' });
+                        this.$router.push({ name: 'organisation-dashboard' });
                     }
                 }
             ).catch(() => {
-
+                this.show = true;
+                this.color = 'error';
+                this.message = "invalid login credentials";
             })
         },
         reset() {

@@ -1,7 +1,7 @@
 import {
     ReviewService
 } from "../../services";
-import { GET_REVIEWS, CREATE_REVIEW, UPDATE_REVIEW, DELETE_REVIEW } from "../action";
+import { GET_REVIEWS, CREATE_REVIEW, UPDATE_REVIEW, GET_VALIDATED_REVIEW, GET_USER_REVIEW } from "../action";
 import { SET_REVIEWS } from "../mutation";
 
 const initialState = {
@@ -26,8 +26,14 @@ const actions = {
         const { data } = await ReviewService.updateReview(payload);
         return data;
     },
-    async [DELETE_REVIEW](context, payload) {
-        const { data } = await ReviewService.deleteReview(payload);
+    async [GET_VALIDATED_REVIEW](context) {
+        const { data } = await ReviewService.getValidatedReview();
+        context.commit(SET_REVIEWS, data.data);
+        return data;
+    },
+    async [GET_USER_REVIEW](context) {
+        const { data } = await ReviewService.getUserReview();
+        context.commit(SET_REVIEWS, data.data);
         return data;
     }
 

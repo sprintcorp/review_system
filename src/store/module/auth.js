@@ -1,5 +1,5 @@
 import { AuthService } from "../../services";
-import { REGISTER_USER, LOGIN_USER, UPDATE_USER, GET_USER, UPDATE_PASSWORD, RESET_PASSWORD, PASSWORD_RESET } from "../action";
+import { REGISTER_USER, LOGIN_USER, UPDATE_USER, GET_USER, GET_ORGANISATION } from "../action";
 import {
     saveUserData,
     saveUser
@@ -44,20 +44,11 @@ const actions = {
         return data;
     },
 
-    async [UPDATE_PASSWORD](context, payload) {
-        const { data } = await AuthService.updateUserPassword(payload);
+    async [GET_ORGANISATION](context) {
+        const { data } = await AuthService.getOrganisation();
+        context.commit(SET_USER, data.data);
         return data;
     },
-
-    async [RESET_PASSWORD](context, payload) {
-        const { data } = await AuthService.forgotPassword(payload);
-        return data;
-    },
-
-    async [PASSWORD_RESET](context, payload) {
-        const { data } = await AuthService.resetPassword(payload);
-        return data;
-    }
 };
 
 

@@ -60,6 +60,22 @@ const router = new VueRouter({
             }]
         },
 
+        {
+            path: '/organisation',
+            component: () =>
+                import ('../container/organisation/Layout/Layout.vue'),
+            ...preventRoutes,
+            redirect: {
+                name: 'organisation-dashboard'
+            },
+            children: [{
+                path: '/organisation/dashboard',
+                name: 'organisation-dashboard',
+                component: () =>
+                    import ('../container/organisation/Dashboard/Dashboard.vue'),
+            }]
+        },
+
 
         {
             path: '/user',
